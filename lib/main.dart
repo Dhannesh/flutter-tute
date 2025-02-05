@@ -61,6 +61,25 @@ class MyStore extends StatelessWidget {
               ),),
             ),
           ),
+          bottomNavigationBar: BottomAppBar(
+            color: Colors.blueGrey,
+            child: Row(
+              children: <Widget>[
+                IconButton(
+                  onPressed: () {debugPrint('Searching');},
+                    icon: const Icon(Icons.search),
+                ),
+                IconButton(
+                  onPressed: () {debugPrint('Adding a photo');},
+                  icon: const Icon(Icons.add_a_photo),
+                ),
+                IconButton(
+                  onPressed: () {debugPrint('Sharing');},
+                  icon: const Icon(Icons.share),
+                )
+              ],
+            ),
+          ),
           drawerScrimColor: Colors.transparent,
           ),
         );
