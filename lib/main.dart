@@ -11,12 +11,12 @@ class MyStore extends StatelessWidget {
     return MaterialApp(
         title: 'Insta Store',
         theme: ThemeData(
-          brightness: Brightness.light,
-          colorScheme: ColorScheme.fromSwatch().copyWith(
-            primary: Colors.orange,
-            secondary: Colors.green
-          )
-        ),
+            brightness: Brightness.light,
+            colorScheme: ColorScheme.fromSwatch()
+                .copyWith(primary: Colors.orange, secondary: Colors.green),
+            textTheme: const TextTheme(
+                bodyMedium: TextStyle(
+                    color: Colors.pink, fontStyle: FontStyle.italic))),
         home: Scaffold(
           appBar: AppBar(
             title: const Text('Insta Store 2'),
@@ -29,30 +29,40 @@ class MyStore extends StatelessWidget {
                 height: 300,
                 margin: const EdgeInsets.all(30),
                 padding: const EdgeInsets.all(40),
-                decoration: const BoxDecoration(
-
-                ),
-              // child: const FlutterLogo(),
-                child: Image.network("https://openclipart.org/image/800px/89299"),
+                decoration: const BoxDecoration(),
+                // child: const FlutterLogo(),
+                child:
+                    Image.network("https://openclipart.org/image/800px/89299"),
               ),
-                const Expanded(
-                  child: Center(
-                    child: Text('Welcome to Happy Store',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            fontSize: 24,
-                            fontFamily: 'Verdana',
-                            // color: Color.fromARGB(200, 250, 150, 214),
-                            fontWeight: FontWeight.bold)),
-                  ),
+              const Expanded(
+                child: Center(
+                  child: Text('Welcome to Happy Store',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontSize: 24,
+                          fontFamily: 'Verdana',
+                          // color: Color.fromARGB(200, 250, 150, 214),
+                          fontWeight: FontWeight.bold)),
                 ),
+              ),
             ],
           ),
           floatingActionButton: FloatingActionButton(
-            onPressed: () {debugPrint('Thank you for liking us!');},
+            onPressed: () {
+              debugPrint('Thank you for liking us!');
+            },
             tooltip: 'Like Us!',
             child: const Icon(Icons.favorite),
           ),
-        ));
+          drawer: const Drawer(
+            child: Center(
+              child: Text('My Profile', style: TextStyle(
+                fontSize: 20,
+              ),),
+            ),
+          ),
+          drawerScrimColor: Colors.transparent,
+          ),
+        );
   }
 }
