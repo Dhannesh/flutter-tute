@@ -12,7 +12,10 @@ class MyStore extends StatelessWidget {
         title: 'Insta Store',
         theme: ThemeData(
           brightness: Brightness.light,
-          primarySwatch: Colors.amber
+          colorScheme: ColorScheme.fromSwatch().copyWith(
+            primary: Colors.orange,
+            secondary: Colors.green
+          )
         ),
         home: Scaffold(
           appBar: AppBar(
