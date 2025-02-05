@@ -10,6 +10,10 @@ class MyStore extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         title: 'Insta Store',
+        theme: ThemeData(
+          brightness: Brightness.light,
+          primarySwatch: Colors.amber
+        ),
         home: Scaffold(
           appBar: AppBar(
             title: const Text('Insta Store 2'),
