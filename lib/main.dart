@@ -12,11 +12,8 @@ class MyStore extends StatelessWidget {
         title: 'Insta Store',
         theme: ThemeData(
             brightness: Brightness.light,
-            colorScheme: ColorScheme.fromSwatch()
-                .copyWith(primary: Colors.orange, secondary: Colors.green),
-            textTheme: const TextTheme(
-                bodyMedium: TextStyle(
-                    color: Colors.pink, fontStyle: FontStyle.italic))),
+          primarySwatch: Colors.blueGrey
+            ),
         home: Scaffold(
           appBar: AppBar(
             title: const Text('Insta Store 2'),
@@ -47,41 +44,33 @@ class MyStore extends StatelessWidget {
               ),
             ],
           ),
-          floatingActionButton: FloatingActionButton(
-            onPressed: () {
-              debugPrint('Thank you for liking us!');
-            },
-            tooltip: 'Like Us!',
-            child: const Icon(Icons.favorite),
-          ),
-          drawer: const Drawer(
-            child: Center(
-              child: Text('My Profile', style: TextStyle(
-                fontSize: 20,
-              ),),
-            ),
-          ),
-          bottomNavigationBar: BottomAppBar(
-            color: Colors.blueGrey,
-            child: Row(
-              children: <Widget>[
-                IconButton(
-                  onPressed: () {debugPrint('Searching');},
-                    icon: const Icon(Icons.search),
-                ),
-                IconButton(
-                  onPressed: () {debugPrint('Adding a photo');},
-                  icon: const Icon(Icons.add_a_photo),
-                ),
-                IconButton(
-                  onPressed: () {debugPrint('Sharing');},
-                  icon: const Icon(Icons.share),
-                )
-              ],
-            ),
-          ),
-          drawerScrimColor: Colors.transparent,
+          floatingActionButton: const LikeUsButton()
+
           ),
         );
   }
+}
+class LikeUsButton extends StatefulWidget{
+  const LikeUsButton({Key?key}):super(key:key);
+  @override
+  State<LikeUsButton> createState() => _LikeUsButtonState();
+}
+class _LikeUsButtonState extends State<LikeUsButton>{
+  int _counter = 0;
+  void _incrementCounter(){
+    setState(() {
+      _counter++;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return FloatingActionButton(
+    onPressed: _incrementCounter,
+      tooltip: 'Like us! ($_counter Likes)',
+      child: const Icon(Icons.thumb_up),
+    );
+
+  }
+
 }
